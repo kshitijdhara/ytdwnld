@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ytp
+  name: ytp
+spec:
+ replicas: 3
+ selector:
+    matchLabels:
+       app: ytp
+ template: 
+  metadata:
+    labels:
+      app: ytp
+  spec:
+   containers:
+   - image: kshitij08/webht:v3
+     name: webht
+     ports:
+      - containerPort: 80
+        name: nginx
